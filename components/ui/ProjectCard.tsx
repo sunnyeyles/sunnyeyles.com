@@ -13,15 +13,16 @@ export const ProjectCard = ({
   alt,
 }: IProjectCardProps) => {
   return (
-    <div className="card card-compact w-60 md:w-96 shadow-lg bg-blue-500 m-2">
+    <div className="card card-compact w-60 md:w-96 bg-white m-6 shadow-md">
       <figure>
         <Image src={image} alt={alt} className="" />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">{title}</h2>
-        <p>{description}</p>
-        <div className="card-actions justify-end">
+        <h2 className="card-title text-blue-200">{title}</h2>
+        <p className="text-gray-500">{description}</p>
+        <div className="card-actions flex justify-end">
           <button className="btn">Check it out</button>
+          <button className="btn">Github</button>
         </div>
       </div>
     </div>

@@ -28,7 +28,7 @@ export const MainCarousel = () => {
   }
 
   return (
-    <div className="w-3/4 m-auto bg-black">
+    <div className="w-3/4 m-auto bg-gradient-to-r from-gray-400 via-secondary via-40% to-gray-400 rounded-sm">
       <Swiper
         modules={[Scrollbar]}
         className="mySwiper"

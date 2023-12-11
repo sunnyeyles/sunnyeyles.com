@@ -3,7 +3,6 @@ import { useState, useRef } from 'react'
 
 import Image from 'next/image'
 import { Landing } from '@/components/fullPages/Landing'
-import { About } from '@/components/fullPages/About'
 import { Projects } from '@/components/fullPages/Projects'
 import { Parallax, ParallaxLayer, IParallax } from '@react-spring/parallax'
 import backgroundSpaceImage from '../pexels-sam-kolder-2387877.jpg'

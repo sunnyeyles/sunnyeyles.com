@@ -49,7 +49,7 @@ export const NavBar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-blue shadow-2xl p-8 mt-2 sm:w-40 md:w-96"
+            className="menu menu-sm dropdown-content  shadow-2xl p-8 mt-2 sm:w-40 md:w-96"
           >
             <li>
               <ModalButton
@@ -82,7 +82,9 @@ export const NavBar = () => {
               <a className="mt-2">Projects</a>
             </li>
             <li>
-              <a className="mt-2">Github</a>
+              <a href="https://en.wikipedia.org/wiki/Next.js" className="mt-2">
+                Github
+              </a>
             </li>
           </ul>
         </div>
