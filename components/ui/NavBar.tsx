@@ -82,7 +82,15 @@ export const NavBar = () => {
               <a className="mt-2">Projects</a>
             </li>
             <li>
-              <a href="https://en.wikipedia.org/wiki/Next.js" className="mt-2">
+              <a
+                className="mt-2"
+                href="https://www.linkedin.com/in/sunny-eyles-81b259216/"
+              >
+                LinkedIn
+              </a>
+            </li>
+            <li>
+              <a className="mt-2" href="https://github.com/sunnyeyles">
                 Github
               </a>
             </li>

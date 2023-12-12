@@ -15,7 +15,7 @@ export const ProjectCard = ({
   return (
     <div className="card card-compact w-60 md:w-96 bg-white m-6 shadow-md">
       <figure>
-        <Image src={image} alt={alt} className="" />
+        <Image src={image} alt={alt} />
       </figure>
       <div className="card-body">
         <h2 className="card-title text-blue-200">{title}</h2>
