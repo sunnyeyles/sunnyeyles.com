@@ -18,7 +18,6 @@ export const NavBar = () => {
   let storedIsDark
   if (typeof window !== 'undefined') {
     storedIsDark = localStorage.getItem('isdark')
-    console.log(storedIsDark)
   }
   const initialIsDark = storedIsDark ? JSON.parse(storedIsDark) : false
   const [isdark, setIsdark] = useState<string | boolean>(initialIsDark)
@@ -117,7 +116,10 @@ export const NavBar = () => {
         </div>
       </div>
       <div tabIndex={0} role="button" className="btn btn-ghost">
-        <div className="navbar-center hover:text-white animate-pulse animate-duration-[4000ms] animate-delay-[2000ms]">
+        <div
+          onClick={() => scrollToSection('top')}
+          className="navbar-center hover:text-white animate-pulse animate-duration-[4000ms] animate-delay-[2000ms]"
+        >
           {'<sunny />'}
         </div>
       </div>

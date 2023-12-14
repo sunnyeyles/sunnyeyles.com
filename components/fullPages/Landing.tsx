@@ -2,9 +2,6 @@ import Image from 'next/image'
 import photoOfMe from '../../assets/3F8D4ECA-BA5C-48F5-84AA-82F82107A013.jpeg'
 import { ModalButton } from '../ui/ModalButton'
 import { AboutMeModalContent } from '../ui/AboutMeModalContent'
-import { Parallax, ParallaxLayer } from '@react-spring/parallax'
-import { ButtonPrimary } from '../ui/ButtonPrimary'
-import { ButtonSecondary } from '../ui/ButtonSecondary'
 
 export const Landing = () => {
   const openModal = (modalId: string) => {
@@ -15,7 +12,7 @@ export const Landing = () => {
   }
 
   return (
-    <div className="h-screen flex items-center justify-center">
+    <div id="top" className="h-screen flex items-center justify-center">
       <div className="text-center max-w-lg">
         <h1 className="text-4xl font-bold animate-fade animate-duration-[2000ms] animate-delay-150 animate-ease-out">
           Sunny Eyles
@@ -28,7 +25,7 @@ export const Landing = () => {
 
         <div className="avatar animate-fade animate-duration-[4000ms] animate-delay-700 animate-ease-out m-2">
           <div className="w-60 rounded-xl overflow-hidden">
-            <Image src={photoOfMe} alt="me" />
+            <Image src={photoOfMe} alt="me" className="opacity-50" />
           </div>
         </div>
         <h3 className="text-gray-400 text-md m-2">
