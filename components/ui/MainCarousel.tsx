@@ -2,8 +2,12 @@ import React, { useRef, useState } from 'react'
 import { ProjectCard } from './ProjectCard'
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react'
-import devBookImage from '../../devbook.png'
-
+import devBookImage from '../../assets/dev_book.png'
+import stickers from '../../assets/stickers.png'
+import ask from '../../assets/ask.png'
+import calculator from '../../assets/calculator_app.png'
+import todo from '../../assets/todo_list.png'
+import portfolioAngus from '../../assets/angus_portfolio.png'
 // Import Swiper styles
 import 'swiper/css'
 import 'swiper/css/scrollbar'
@@ -41,46 +45,63 @@ export const MainCarousel = () => {
             alt="devbook"
             image={devBookImage}
             description="A social media platform for developers"
+            notDisabled={true}
+            siteLink="https://www.devbook.live/"
+            codeLink="https://github.com/sunnyeyles/DevBook"
           />
         </SwiperSlide>
         <SwiperSlide>
           <ProjectCard
-            title="DevBook"
-            alt="devbook"
-            image={devBookImage}
-            description="A social media platform for developers"
+            title="A S K"
+            alt="ask e-commerce site"
+            image={ask}
+            description="An E-commerce platform"
+            notDisabled={true}
+            siteLink="https://sunnyeyles.github.io/React-Ecommerce-Project/"
+            codeLink="https://github.com/sunnyeyles/React-Ecommerce-Project"
           />
         </SwiperSlide>
         <SwiperSlide>
           <ProjectCard
-            title="DevBook"
-            alt="devbook"
-            image={devBookImage}
-            description="A social media platform for developers"
+            title="Todo App"
+            alt="todo app"
+            image={todo}
+            description="A simple todo app to keep track of tasks"
+            notDisabled={true}
+            siteLink="https://doing-beryl.vercel.app/"
+            codeLink="https://github.com/sunnyeyles/doing"
           />
         </SwiperSlide>
         <SwiperSlide>
           <ProjectCard
-            title="DevBook"
-            alt="devbook"
-            image={devBookImage}
-            description="A social media platform for developers"
+            title="Stickers"
+            alt="stickers"
+            image={stickers}
+            description="An E-Commerce site selling stickers"
+            notDisabled={false}
+            codeLink="https://github.com/sunnyeyles/STICKERS"
           />
         </SwiperSlide>
         <SwiperSlide>
           <ProjectCard
-            title="DevBook"
-            alt="devbook"
-            image={devBookImage}
-            description="A social media platform for developers"
+            title="JS calculator"
+            alt="js calculator"
+            image={calculator}
+            description="A funky looking calculator"
+            notDisabled={true}
+            siteLink="https://03-project-calulator-sunnyeyles.vercel.app/"
+            codeLink="https://github.com/sunnyeyles/03-project-calulator/"
           />
         </SwiperSlide>
         <SwiperSlide>
           <ProjectCard
-            title="DevBook"
-            alt="devbook"
-            image={devBookImage}
-            description="A social media platform for developers"
+            title="Angus' Portfolio"
+            alt="angus' portfolio"
+            image={portfolioAngus}
+            description="A portfolio website for a friend"
+            notDisabled={true}
+            siteLink="https://sunnyeyles.github.io/Portfolio-layout/"
+            codeLink="https://github.com/sunnyeyles/Portfolio-layout"
           />
         </SwiperSlide>
       </Swiper>

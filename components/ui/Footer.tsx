@@ -4,7 +4,10 @@ export const Footer = () => {
       <footer className="footer footer-center p-10 shadow-sm text-primary-content">
         <nav>
           <div className="grid grid-flow-col gap-4">
-            <a href="https://www.linkedin.com/in/sunny-eyles-81b259216/">
+            <a
+              href="https://www.linkedin.com/in/sunny-eyles-81b259216/"
+              target="_blank"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -20,7 +23,7 @@ export const Footer = () => {
                 <circle cx="4" cy="4" r="2" />
               </svg>
             </a>
-            <a href="https://github.com/sunnyeyles">
+            <a href="https://github.com/sunnyeyles" target="_blank">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"

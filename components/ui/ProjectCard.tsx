@@ -1,3 +1,4 @@
+import { a } from '@react-spring/web'
 import Image from 'next/image'
 import { StaticImageData } from 'next/image'
 interface IProjectCardProps {
@@ -5,24 +6,36 @@ interface IProjectCardProps {
   title: string
   description: string
   alt: string
+  notDisabled: boolean
+  siteLink?: string
+  codeLink: string
 }
 export const ProjectCard = ({
   image,
   title,
   description,
   alt,
+  notDisabled,
+  siteLink,
+  codeLink,
 }: IProjectCardProps) => {
   return (
-    <div className="card card-compact w-60 md:w-96 bg-white m-6 shadow-md">
+    <div className="card card-compact w-60 md:w-96 bg-white m-6 shadow-2xl">
       <figure>
-        <Image src={image} alt={alt} />
+        <Image src={image} alt={alt} objectFit="cover" className="card-image" />
       </figure>
       <div className="card-body">
         <h2 className="card-title text-blue-200">{title}</h2>
         <p className="text-gray-500">{description}</p>
         <div className="card-actions flex justify-end">
-          <button className="btn">Check it out</button>
-          <button className="btn">Github</button>
+          {notDisabled ? (
+            <a href={siteLink} target="_blank">
+              <button className="btn btn-sm btn-primary ">Check it out</button>
+            </a>
+          ) : null}
+          <a href={codeLink} target="_blank">
+            <button className="btn btn-sm">Code</button>
+          </a>
         </div>
       </div>
     </div>

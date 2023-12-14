@@ -5,6 +5,15 @@ import { ModalButton } from './ModalButton'
 import { AboutMeModalContent } from './AboutMeModalContent'
 
 export const NavBar = () => {
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId)
+    if (section) {
+      window.scrollTo({
+        top: section.offsetTop - 100,
+        behavior: 'smooth',
+      })
+    }
+  }
   // persist color theme state
   let storedIsDark
   if (typeof window !== 'undefined') {
@@ -79,18 +88,28 @@ export const NavBar = () => {
               </div>
             </li>
             <li>
-              <a className="mt-2">Projects</a>
+              <a
+                className="mt-2"
+                onClick={() => scrollToSection('projectsSection')}
+              >
+                Projects
+              </a>
             </li>
             <li>
               <a
                 className="mt-2"
                 href="https://www.linkedin.com/in/sunny-eyles-81b259216/"
+                target="_blank"
               >
                 LinkedIn
               </a>
             </li>
             <li>
-              <a className="mt-2" href="https://github.com/sunnyeyles">
+              <a
+                className="mt-2"
+                href="https://github.com/sunnyeyles"
+                target="_blank"
+              >
                 Github
               </a>
             </li>

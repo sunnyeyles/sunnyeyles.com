@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import photoOfMe from '../../3F8D4ECA-BA5C-48F5-84AA-82F82107A013.jpeg'
+import photoOfMe from '../../assets/3F8D4ECA-BA5C-48F5-84AA-82F82107A013.jpeg'
 import { ModalButton } from '../ui/ModalButton'
 import { AboutMeModalContent } from '../ui/AboutMeModalContent'
 import { Parallax, ParallaxLayer } from '@react-spring/parallax'
