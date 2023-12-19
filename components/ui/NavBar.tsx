@@ -1,10 +1,13 @@
 'use client'
-import { useEffect, useState } from 'react'
+
+import { useEffect, useState, useRef, ElementType } from 'react'
 import { ContactForm } from './ContactForm'
 import { ModalButton } from './ModalButton'
 import { AboutMeModalContent } from './AboutMeModalContent'
 
 export const NavBar = () => {
+  const [navBarOpen, setNavBarOpen] = useState<boolean>(false)
+
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId)
     if (section) {
@@ -14,16 +17,6 @@ export const NavBar = () => {
       })
     }
   }
-  // persist color theme state
-  let storedIsDark
-  if (typeof window !== 'undefined') {
-    storedIsDark = localStorage.getItem('isdark')
-  }
-  const initialIsDark = storedIsDark ? JSON.parse(storedIsDark) : false
-  const [isdark, setIsdark] = useState<string | boolean>(initialIsDark)
-  useEffect(() => {
-    localStorage.setItem('isdark', JSON.stringify(isdark))
-  }, [isdark])
 
   // handle modal open/close
   const openModal = (modalId: string) => {
@@ -35,11 +28,22 @@ export const NavBar = () => {
     }
   }
 
+  const navRoot = useRef<HTMLDivElement>(null)
+
   return (
-    <div className="navbar shadow-2xl sticky top-0 z-20 bg-opacity-90 backdrop-blur">
+    <div
+      className="navbar shadow-2xl sticky top-0 z-20 bg-opacity-90 backdrop-blur"
+      ref={navRoot}
+      id="root"
+    >
       <div className="navbar-start">
-        <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
+        <div className="dropdown w-full">
+          <div
+            tabIndex={0}
+            role="button"
+            className="btn btn-ghost btn-circle"
+            onClick={() => setNavBarOpen(!navBarOpen)}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -55,64 +59,91 @@ export const NavBar = () => {
               />
             </svg>
           </div>
-          <ul
-            tabIndex={0}
-            className="menu menu-sm dropdown-content  shadow-2xl p-8 mt-2 sm:w-40 md:w-96"
-          >
-            <li>
-              <ModalButton
-                modalId="aboutMeModal"
-                trigger={<a className="mt-2">About me</a>}
-                onOpen={() => openModal('aboutMeModal')}
-                openModal={openModal}
+          {navBarOpen && (
+            <ul
+              tabIndex={0}
+              className="menu dropdown-content shadow-2xl p-8 mt-2 w-96 bg-base-100 relative"
+            >
+              <div
+                role="button"
+                className="btn btn-ghost btn-circle absolute top-2 right-2"
+                onClick={() => setNavBarOpen(!navBarOpen)}
               >
-                <AboutMeModalContent />
-              </ModalButton>
-            </li>
-            <li>
-              <div>
-                <a className=" mt-2" onClick={() => openModal('contactModal')}>
-                  Contact
-                </a>
-                <dialog id="contactModal" className="modal">
-                  <div className="modal-box">
-                    <ContactForm />
-                    <div className="modal-action">
-                      <form method="dialog">
-                        <button className="btn">Close</button>
-                      </form>
-                    </div>
-                  </div>
-                </dialog>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M18 6 6 18" />
+                  <path d="m6 6 12 12" />
+                </svg>
               </div>
-            </li>
-            <li>
-              <a
-                className="mt-2"
-                onClick={() => scrollToSection('projectsSection')}
-              >
-                Projects
-              </a>
-            </li>
-            <li>
-              <a
-                className="mt-2"
-                href="https://www.linkedin.com/in/sunny-eyles-81b259216/"
-                target="_blank"
-              >
-                LinkedIn
-              </a>
-            </li>
-            <li>
-              <a
-                className="mt-2"
-                href="https://github.com/sunnyeyles"
-                target="_blank"
-              >
-                Github
-              </a>
-            </li>
-          </ul>
+              <li className="mt-6">
+                <ModalButton
+                  modalId="aboutMeModal"
+                  trigger={<a className="mt-2">About me</a>}
+                  onOpen={() => openModal('aboutMeModal')}
+                  openModal={openModal}
+                >
+                  <AboutMeModalContent />
+                </ModalButton>
+              </li>
+              <li>
+                <div>
+                  <a
+                    className="mt-2"
+                    onClick={() => {
+                      openModal('contactModal')
+                    }}
+                  >
+                    Contact
+                  </a>
+                  <dialog id="contactModal" className="modal">
+                    <div className="modal-box">
+                      <ContactForm />
+                      <div className="modal-action">
+                        <form method="dialog">
+                          <button className="btn">Close</button>
+                        </form>
+                      </div>
+                    </div>
+                  </dialog>
+                </div>
+              </li>
+              <li>
+                <a
+                  className="mt-2"
+                  onClick={() => scrollToSection('projectsSection')}
+                >
+                  Projects
+                </a>
+              </li>
+              <li>
+                <a
+                  className="mt-2"
+                  href="https://www.linkedin.com/in/sunny-eyles-81b259216/"
+                  target="_blank"
+                >
+                  LinkedIn
+                </a>
+              </li>
+              <li>
+                <a
+                  className="mt-2"
+                  href="https://github.com/sunnyeyles"
+                  target="_blank"
+                >
+                  Github
+                </a>
+              </li>
+            </ul>
+          )}
         </div>
       </div>
       <div tabIndex={0} role="button" className="btn btn-ghost">
@@ -126,13 +157,7 @@ export const NavBar = () => {
       <div className="navbar-end mr-2">
         <button className="btn btn-ghost btn-circle">
           <label className="swap swap-rotate">
-            <input
-              type="checkbox"
-              checked={!!isdark}
-              onChange={() => setIsdark(!isdark)}
-              className="theme-controller"
-              value="lofi"
-            />
+            <input type="checkbox" className="theme-controller" value="lofi" />
 
             {/* moon icon */}
             <svg

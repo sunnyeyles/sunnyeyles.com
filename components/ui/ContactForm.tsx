@@ -54,7 +54,7 @@ export const ContactForm = () => {
   return (
     <div className="max-w-xl mx-auto p-4 rounded-xl shadow-xl space-y-6 m-6">
       <div>
-        <div className="text-2xl font-bold text-center">Contact Me</div>
+        <div className="text-2xl font-bold text-center ">Contact Me</div>
         <div className="text-gray-500 text-center">
           Send me a message, and I'll get back to you
         </div>
