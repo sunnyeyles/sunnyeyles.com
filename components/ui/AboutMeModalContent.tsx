@@ -1,6 +1,6 @@
 export const AboutMeModalContent = () => {
   return (
-    <div className="modal-box shadow-md">
+    <div className="modal-box shadow-2xl">
       <h3 className="text-xl">Hey</h3>
       <p className="py-4 text-md leading-8">
         I'm a passionate developer with a strong focus on React and TypeScript.
