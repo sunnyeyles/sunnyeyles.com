@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import photoOfMe from '../../assets/3F8D4ECA-BA5C-48F5-84AA-82F82107A013.jpeg'
+import photoOfMe from '../../public/3F8D4ECA-BA5C-48F5-84AA-82F82107A013.jpeg'
 import { ModalButton } from '../ui/ModalButton'
 import { AboutMeModalContent } from '../ui/AboutMeModalContent'
 
@@ -9,6 +9,15 @@ export const Landing = () => {
     if (modal) {
       modal.showModal()
     }
+  }
+  const downloadPDF = () => {
+    const pdfFilePath = '/sunny_cv.pdf'
+    const link = document.createElement('a')
+    link.href = pdfFilePath
+    link.download = 'downloaded_file.pdf'
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
   }
 
   return (

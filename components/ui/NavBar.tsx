@@ -28,6 +28,16 @@ export const NavBar = () => {
     }
   }
 
+  const downloadPDF = () => {
+    const pdfFilePath = '/sunny_cv.pdf'
+    const link = document.createElement('a')
+    link.href = pdfFilePath
+    link.download = 'downloaded_file.pdf'
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+  }
+
   const navRoot = useRef<HTMLDivElement>(null)
 
   return (
@@ -84,10 +94,10 @@ export const NavBar = () => {
                   <path d="m6 6 12 12" />
                 </svg>
               </div>
-              <li className="mt-6">
+              <li>
                 <ModalButton
                   modalId="aboutMeModal"
-                  trigger={<a className="mt-2">About me</a>}
+                  trigger={<a>About Me</a>}
                   onOpen={() => openModal('aboutMeModal')}
                   openModal={openModal}
                 >
@@ -97,7 +107,6 @@ export const NavBar = () => {
               <li>
                 <div>
                   <a
-                    className="mt-2"
                     onClick={() => {
                       openModal('contactModal')
                     }}
@@ -117,16 +126,12 @@ export const NavBar = () => {
                 </div>
               </li>
               <li>
-                <a
-                  className="mt-2"
-                  onClick={() => scrollToSection('projectsSection')}
-                >
+                <a onClick={() => scrollToSection('projectsSection')}>
                   Projects
                 </a>
               </li>
               <li>
                 <a
-                  className="mt-2"
                   href="https://www.linkedin.com/in/sunny-eyles-81b259216/"
                   target="_blank"
                 >
@@ -134,13 +139,12 @@ export const NavBar = () => {
                 </a>
               </li>
               <li>
-                <a
-                  className="mt-2"
-                  href="https://github.com/sunnyeyles"
-                  target="_blank"
-                >
+                <a href="https://github.com/sunnyeyles" target="_blank">
                   Github
                 </a>
+              </li>
+              <li>
+                <button onClick={downloadPDF}>My CV</button>
               </li>
             </ul>
           )}
