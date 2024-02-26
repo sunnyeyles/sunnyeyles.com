@@ -20,9 +20,9 @@ export const ProjectCard = ({
   codeLink,
 }: IProjectCardProps) => {
   return (
-    <div className="card card-compact w-60 md:w-96 bg-white m-6 shadow-2xl">
-      <figure>
-        <Image src={image} alt={alt} className="card-image" />
+    <div className="card card-compact w-60 md:w-96 bg-white m-6">
+      <figure className="h-fit">
+        <Image src={image} alt={alt} className="card-image h-60 object-cover" />
       </figure>
       <div className="card-body">
         <h2 className="card-title text-blue-200">{title}</h2>

@@ -8,6 +8,7 @@ import ask from '../../public/ask.png'
 import calculator from '../../public/calculator_app.png'
 import todo from '../../public/todo_list.png'
 import portfolioAngus from '../../public/angus_portfolio.png'
+import recipes from '../../public/recipes.png'
 // Import Swiper styles
 import 'swiper/css'
 import 'swiper/css/scrollbar'
@@ -39,6 +40,16 @@ export const MainCarousel = () => {
         scrollbar={{ hide: false }}
         breakpoints={breakpoints}
       >
+        <SwiperSlide>
+          <ProjectCard
+            title="Recipes"
+            alt="recipes"
+            image={recipes}
+            description="An AI powered app for generating recipes"
+            notDisabled={false}
+            codeLink="https://github.com/sunnyeyles/recipes-v2"
+          />
+        </SwiperSlide>
         <SwiperSlide>
           <ProjectCard
             title="DevBook"
